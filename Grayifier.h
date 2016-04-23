@@ -8,6 +8,5 @@
 
 #import <AppKit/AppKit.h>
 
-
 @interface Grayifier : NSObject
 @end
