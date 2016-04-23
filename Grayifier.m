@@ -37,10 +37,14 @@ NSArray *_filters;
         [filt setDefaults];
         [filt setValue:[CIColor colorWithRed:.3 green:.3 blue:.3 alpha:1] forKey:@"inputColor"];
         
+        CIFilter *filt2 = [CIFilter filterWithName:@"CIGammaAdjust"]; // CIImage
+        [filt2 setDefaults];
+        [filt2 setValue:[NSNumber numberWithFloat:0.3] forKey:@"inputPower"];
+        
         NSWindow *win = note.object;
         _filters = [[win.contentView superview] contentFilters];
         [[win.contentView superview] setWantsLayer:YES];
-        [[win.contentView superview] setContentFilters:[NSArray arrayWithObjects:filt, nil]];
+        [[win.contentView superview] setContentFilters:[NSArray arrayWithObjects:filt, filt2, nil]];
         _filtersAdded = !_filtersAdded;
     }
 }
