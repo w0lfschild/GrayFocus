@@ -10,7 +10,9 @@
 
 @import AppKit;
 #import <QuartzCore/QuartzCore.h>
-#import "Grayifier.h"
+
+@interface Grayifier : NSObject
+@end
 
 @implementation Grayifier
 
@@ -19,15 +21,19 @@ NSArray *_filters;
 
 + (void)load
 {
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(grayify:) name:NSWindowDidResignKeyNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(grayify:) name:NSWindowDidResignMainNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(colorize:) name:NSWindowDidBecomeMainNotification object:nil];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(colorize:) name:NSWindowDidBecomeKeyNotification object:nil];
-    
-    NSLog(@"Grayifier loaded...");
+    NSArray *blacklist = @[@"com.apple.notificationcenterui"];
+    NSString *appID = [[NSBundle mainBundle] bundleIdentifier];
+    if (![blacklist containsObject:appID])
+    {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wb_grayWindow:) name:NSWindowDidResignKeyNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wb_grayWindow:) name:NSWindowDidResignMainNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wb_restoreColor:) name:NSWindowDidBecomeMainNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(wb_restoreColor:) name:NSWindowDidBecomeKeyNotification object:nil];
+        NSLog(@"Grayifier loaded...");
+    }
 }
 
-+ (void)grayify:(NSNotification *)note
++ (void)wb_grayWindow:(NSNotification *)note
 {
     if (!_filtersAdded) {
 //        NSLog(@"Filter added");
@@ -40,7 +46,7 @@ NSArray *_filters;
         CIFilter *filt2 = [CIFilter filterWithName:@"CIGammaAdjust"]; // CIImage
         [filt2 setDefaults];
         [filt2 setValue:[NSNumber numberWithFloat:0.3] forKey:@"inputPower"];
-        
+
         NSWindow *win = note.object;
         _filters = [[win.contentView superview] contentFilters];
         [[win.contentView superview] setWantsLayer:YES];
@@ -49,7 +55,7 @@ NSArray *_filters;
     }
 }
 
-+ (void)colorize:(NSNotification *)note
++ (void)wb_restoreColor:(NSNotification *)note
 {
     if (_filtersAdded) {
 //        NSLog(@"Filter removed");
