@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6129692E120BC6C000D5EB99 /* Grayifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 6129692D120BC6C000D5EB99 /* Grayifier.m */; };
+		6129692E120BC6C000D5EB99 /* GrayFocus.m in Sources */ = {isa = PBXBuildFile; fileRef = 6129692D120BC6C000D5EB99 /* GrayFocus.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6129692D120BC6C000D5EB99 /* Grayifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grayifier.m; sourceTree = "<group>"; };
+		6129692D120BC6C000D5EB99 /* GrayFocus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrayFocus.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* GrayFocus.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GrayFocus.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -39,7 +39,7 @@
 		08FB77AFFE84173DC02AAC07 /* GrayFocus */ = {
 			isa = PBXGroup;
 			children = (
-				6129692D120BC6C000D5EB99 /* Grayifier.m */,
+				6129692D120BC6C000D5EB99 /* GrayFocus.m */,
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 			);
 			name = GrayFocus;
@@ -113,7 +113,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6129692E120BC6C000D5EB99 /* Grayifier.m in Sources */,
+				6129692E120BC6C000D5EB99 /* GrayFocus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
