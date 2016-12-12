@@ -31,7 +31,7 @@ static void     *isActive = &isActive;
 
 + (void)load
 {
-    NSArray *blacklist = @[@"com.apple.notificationcenterui", @"com.google.chrome", @"com.google.chrome.canary"];
+    NSArray *blacklist = @[@"com.apple.notificationcenterui", @"com.google.Chrome", @"com.google.Chrome.canary"];
     NSString *appID = [[NSBundle mainBundle] bundleIdentifier];
     if (![blacklist containsObject:appID])
     {

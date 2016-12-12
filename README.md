@@ -10,7 +10,7 @@
 
 # Installation:
 
-1. Download [mySIMBL](https://github.com/w0lfschild/app_updates/raw/master/mySIMBL/mySIMBL_0.2.5.zip)
+1. Download [mySIMBL](https://github.com/w0lfschild/app_updates/raw/master/mySIMBL/mySIMBL_master.zip)
 2. Download [GrayFocus](https://github.com/w0lfschild/GrayFocus/raw/master/build/GrayFocus.zip)
 3. Unzip downloads
 4. Open `GrayFocus.bundle` with `mySIMBL.app`
